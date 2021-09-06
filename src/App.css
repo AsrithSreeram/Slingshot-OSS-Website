@@ -62,14 +62,114 @@ video {
 }
 
 .page-heading {
-  color: #fff;
+  background-color: red;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(90deg, #ec4899 0%, #ef4444 100%);
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
   font-size: 48px;
   text-align: center;
   font-weight: 800;
 }
 
+.nav-heading {
+  background-color: red;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(90deg, #ec4899 0%, #ef4444 100%);
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  font-size: 32px;
+}
+
+.navbar-image {
+  object-fit: contain;
+  width: 250px;
+  height: 250px;
+}
+
 .quote {
   font-size: 2rem;
+}
+.tab-content {
+  max-height: 0;
+  -webkit-transition: max-height 0.35s;
+  -o-transition: max-height 0.35s;
+  transition: max-height 0.35s;
+}
+/* :checked - resize to full height */
+.tab input:checked ~ .tab-content {
+  max-height: 100vh;
+}
+/* Label formatting when open */
+.tab input:checked + label {
+  /*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
+  font-size: 1.25rem; /*.text-xl*/
+  padding: 1.25rem; /*.p-5*/
+  border-left-width: 2px; /*.border-l-2*/
+  border-color: #6574cd; /*.border-indigo*/
+  background-color: #f8fafc; /*.bg-gray-100 */
+  color: #6574cd; /*.text-indigo*/
+}
+/* Icon */
+.tab label::after {
+  float: right;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  text-align: center;
+  -webkit-transition: all 0.35s;
+  -o-transition: all 0.35s;
+  transition: all 0.35s;
+}
+/* Icon formatting - closed */
+.tab input[type="checkbox"] + label::after {
+  content: "+";
+  font-weight: bold; /*.font-bold*/
+  border-width: 1px; /*.border*/
+  border-radius: 9999px; /*.rounded-full */
+  border-color: #b8c2cc; /*.border-grey*/
+}
+.tab input[type="radio"] + label::after {
+  content: "\25BE";
+  font-weight: bold; /*.font-bold*/
+  border-width: 1px; /*.border*/
+  border-radius: 9999px; /*.rounded-full */
+  border-color: #b8c2cc; /*.border-grey*/
+}
+/* Icon formatting - open */
+.tab input[type="checkbox"]:checked + label::after {
+  transform: rotate(315deg);
+  background-color: #6574cd; /*.bg-indigo*/
+  color: #f8fafc; /*.text-grey-lightest*/
+}
+.tab input[type="radio"]:checked + label::after {
+  transform: rotateX(180deg);
+  background-color: #6574cd; /*.bg-indigo*/
+  color: #f8fafc; /*.text-grey-lightest*/
 }
 
 @media screen and (max-width: 768px) {
@@ -92,12 +192,26 @@ video {
   }
 }
 
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .btn {
   cursor: pointer;
   padding: 10px 30px;
   font-weight: 600;
   font-size: 1.2rem;
-  background-color: #e777e7;
+  background-color: black;
   border-radius: 50px;
   border: none;
   outline: none;
@@ -107,12 +221,13 @@ video {
   align-items: center;
   font-family: "Open Sans", sans-serif;
   transition: all 0.2s ease-in-out;
-  color: #000;
+  color: white;
 }
 
 .btn:hover {
   transition: all 0.3s ease-in-out;
-  background-color: #f0c16a;
+  background-color: white;
+  color: black;
 }
 
 .icon {
@@ -129,11 +244,11 @@ video {
 }
 
 .info-container {
-  background-color: rgb(255, 188, 255);
+  background-color: #fffdfd;
 }
 
 .dark {
-  background-color: rgb(240, 193, 106);
+  background-color: #282222;
 }
 
 @media screen and (max-width: 768px) {
@@ -207,11 +322,29 @@ video {
   margin-bottom: 16px;
 }
 
+.top-line2 {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: white;
+}
+
 .heading {
   margin-bottom: 24px;
   font-size: 48px;
   line-height: 1.1;
   font-weight: 600px;
+}
+
+.heading2 {
+  margin-bottom: 24px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600px;
+  color: white;
 }
 
 @media screen and (max-width: 480px) {
@@ -225,6 +358,14 @@ video {
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
+}
+
+.subtitle2 {
+  max-width: 440px;
+  margin-bottom: 35px;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
 }
 
 .img-wrapper {

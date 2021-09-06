@@ -1,39 +1,25 @@
 import React from "react";
 import { Link } from "react-scroll";
 import "./Navbar.css";
+import SlingshotLogo from "../img/Slingshotlogo.png";
+
+
+
+
 
 const Navbar = ({ scrollNav, toggleHome }) => {
   return (
     <nav className={scrollNav && "nav-bg"}>
-      <Link onClick={toggleHome} className="logo">
-        SemiColon;
-      </Link>
+<div className="links">
+<a style = {{textDecoration: "none"}} className="navbar-btn" href = "/"><h2 className = "nav-heading">Slingshot</h2></a>
+</div>
+
+
       <div className="links">
-        <Link onClick={toggleHome} className="navbar-btn">
-          Home
-        </Link>
-        <Link
-          to="sign-in"
-          smooth={true}
-          duration={1000}
-          offset={-70}
-          spy={true}
-          exact="true"
-          className="navbar-btn"
-        >
-          Sign In
-        </Link>
-        <Link
-          to="sign-up"
-          smooth={true}
-          duration={1000}
-          spy={true}
-          offset={-70}
-          exact="true"
-          className="navbar-btn"
-        >
-          Sign Up
-        </Link>
+      <a style = {{textDecoration: "none"}} className="navbar-btn" href = "/"><h2 className = "nav-heading">Home</h2></a>
+
+       <a style = {{textDecoration: "none"}} className="navbar-btn" href = "/projects"><h2 className = "nav-heading">Projects</h2></a>
+
       </div>
     </nav>
   );
